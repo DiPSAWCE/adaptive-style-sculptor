@@ -19,6 +19,11 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        olive: {
+          DEFAULT: "hsl(var(--olive))",
+          dark: "hsl(var(--olive-dark))",
+        },
+        peachy: "hsl(var(--peachy))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -58,6 +63,10 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        jaini: ['Jaini', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -80,10 +89,30 @@ export default {
             height: "0",
           },
         },
+        twinkle: {
+          "0%": { opacity: "0.1" },
+          "100%": { opacity: "1" },
+        },
+        "fade-from-transparent": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "scroll-strip": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        oscillate: {
+          "0%": { transform: "translateX(calc(var(--amount) * -50))" },
+          "100%": { transform: "translateX(var(--amount))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        twinkle: "twinkle 5s alternate infinite",
+        "fade-in": "fade-from-transparent 5s",
+        "scroll-strip": "scroll-strip 20s linear infinite",
+        oscillate: "oscillate 10s infinite alternate",
       },
     },
   },
