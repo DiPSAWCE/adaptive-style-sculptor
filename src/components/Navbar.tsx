@@ -16,14 +16,14 @@ const Navbar = ({ className }: NavbarProps) => {
           to="/" 
           className="font-jaini text-2xl md:text-3xl lg:text-4xl font-extrabold text-white cursor-pointer transition-colors hover:text-primary"
         >
-          Logo
+          Banele.dev
         </Link>
 
         <div className="hidden md:flex items-center justify-center flex-1 gap-8 lg:gap-16 mx-8">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/services">Services</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/start-project">Start-A-Project</NavLink>
         </div>
 
         {/* Mobile menu button - implement as needed */}

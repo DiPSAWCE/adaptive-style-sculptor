@@ -8,11 +8,10 @@ const Index = () => {
       
       <main>
         <HeroSection
-          title="Welcome to Your Amazing Website"
-          subtitle="Building Tomorrow's Web Today"
-          description="We create beautiful, responsive, and high-performance web experiences that help your business grow. Our team combines cutting-edge technology with stunning design to deliver exceptional results."
-          ctaText="Explore Services"
-          ctaLink="/services"
+          title="Creative Full-Stack Dev"
+          description="Building clean, modern web experiences with a conscience. Efficient, sustainable websites that are lightweight, fast, and environmentally mindful."
+          ctaText="Work with me!"
+          ctaLink="/start-project"
         />
 
         <section className="container-responsive py-16 md:py-24">
@@ -21,11 +20,18 @@ const Index = () => {
               Did You Know?
             </h2>
             <p className="font-montserrat text-responsive-lg text-white/90 leading-relaxed">
-              We've successfully delivered over 100 projects, helping businesses transform 
-              their digital presence and achieve their goals. Let us help you too!
+              Over 75% of consumers judge a company's credibility based on its website design, and businesses with a strong online presence are more likely to increase sales by reaching their target audience effectively. A well-developed website doesn't just showcase products or services—it acts as a 24/7 salesperson, building trust, attracting the right audience, and guiding visitors into loyal customers.
             </p>
           </div>
         </section>
+
+        <div className="bg-black/80 py-6 overflow-hidden">
+          <div className="whitespace-nowrap animate-scroll-strip">
+            <p className="inline-block text-white text-2xl md:text-4xl lg:text-5xl font-bold">
+              ⭐ Website Development ⭐ App Prototypes ⭐ E-Commerce Sites ⭐ Front-End & UI/UX ⭐
+            </p>
+          </div>
+        </div>
       </main>
     </div>
   );

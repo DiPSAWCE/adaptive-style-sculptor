@@ -28,18 +28,31 @@ const About = () => {
       <main className="container-responsive py-12 md:py-16">
         <div className="glass rounded-lg p-6 md:p-8 lg:p-12 max-w-4xl mx-auto">
           <h2 className="font-jaini text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 italic">
-            About Us
+            A little about me
           </h2>
           
+          <p className="font-montserrat text-responsive-xl text-white/90 leading-loose mb-6">
+            HI, I'm Banele Mjayezi a developer passionate about creating clean, modern web experiences with a conscience.
+          </p>
+
+          <p className="font-montserrat text-responsive-xl text-white/90 leading-loose mb-6">
+            My main focus is building efficient, sustainable websites that are lightweight, fast, and environmentally mindful.
+          </p>
+
           <p className="font-montserrat text-responsive-xl text-white/90 leading-loose mb-8">
-            We are passionate about creating beautiful and functional web experiences. 
-            Our team combines creativity with technical expertise to deliver exceptional results.
+            I believe that technology can support local makers, reduce waste and promote smarter consumption.
+          </p>
+
+          <p className="font-montserrat text-responsive-xl text-white/90 leading-loose mb-6">
+            Right now, I'm focused on practical learning and building real-world projects while experimenting with modern tools and exploring.
+          </p>
+          
+          <p className="font-montserrat text-responsive-xl text-white/90 leading-loose mb-8">
+            I am currently studying web development, sharpening my skills in both front-end and back-end tech. I thrive in learning by doing.
           </p>
 
           <p className="font-montserrat text-responsive-xl text-white/90 leading-loose">
-            With years of experience in web development and design, we've helped numerous 
-            clients bring their visions to life. From concept to deployment, we're with you 
-            every step of the way.
+            I am constantly iterating and experimenting to bring meaningful digital ideas to life. When I'm not at the laptop, I'm usually outdoors, practising my surfing, reading, or thinking up new ways to blend tech, sustainability, and creativity.
           </p>
         </div>
 
