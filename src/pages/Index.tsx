@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[url('/placeholder.svg')] bg-cover bg-center bg-fixed">
+    <div className="min-h-screen bg-[url('/background.png')] bg-cover bg-center bg-fixed">
       <Navbar />
       
       <main>

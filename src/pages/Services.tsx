@@ -52,7 +52,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[url('/placeholder.svg')] bg-cover bg-center bg-fixed">
+    <div className="min-h-screen bg-[url('/background.png')] bg-cover bg-center bg-fixed">
       <Navbar />
       
       <main className="container-responsive py-12 md:py-16">
