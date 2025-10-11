@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { z } from "zod";
+import emailjs from "emailjs-com";
 
 // Validation schema
 const projectSchema = z.object({
@@ -25,6 +26,7 @@ const StartProject = () => {
   const [userEmail, setUserEmail] = useState("");
   const [selectedServices, setSelectedServices] = useState<Set<string>>(new Set());
   const [errors, setErrors] = useState<{ userName?: string; userEmail?: string }>({});
+  const [isSending, setIsSending] = useState(false);
 
   const services: ServiceItem[] = [
     { id: "no-design", name: "No design", price: 0, category: "design" },
@@ -78,6 +80,7 @@ const StartProject = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+    setIsSending(true);
 
     // Validate inputs
     const validation = projectSchema.safeParse({ userName, userEmail });
@@ -89,25 +92,44 @@ const StartProject = () => {
         if (issue.path[0] === "userEmail") fieldErrors.userEmail = issue.message;
       });
       setErrors(fieldErrors);
+      setIsSending(false);
       return;
     }
 
     if (selectedServices.size === 0) {
       toast.error("Please select at least one service");
+      setIsSending(false);
       return;
     }
 
-    const total = calculateTotal();
-    const items = getSelectedItems();
+    const total = calculateTotal().toFixed(2);
+    const items = getSelectedItems().join(", ");
 
-    // Here you would integrate with EmailJS or your backend
-    // For now, just show success
-    toast.success("Quote request sent successfully!");
-    
-    // Reset form
-    setUserName("");
-    setUserEmail("");
-    setSelectedServices(new Set());
+    const templateParams = {
+      user_name: userName,
+      user_email: userEmail,
+      services: items,
+      total,
+    };
+
+    try {
+      await emailjs.send(
+        "service_bdnwc5q",
+        "template_1e8u7rd",
+        templateParams,
+        "YOUR_PUBLIC_KEY"
+      );
+
+      toast.success("Quote request sent successfully!");
+      setUserName("");
+      setUserEmail("");
+      setSelectedServices(new Set());
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast.error("Failed to send quote request. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleQuoteView = () => {
@@ -327,9 +349,9 @@ const StartProject = () => {
                 onClick={handleSubmit}
                 variant="cta"
                 className="w-full"
-                disabled={!userName || !userEmail || selectedServices.size === 0}
+                disabled={!userName || !userEmail || selectedServices.size === 0 || isSending}
               >
-                Send Quote Request
+                {isSending ? "Sending..." : "Send Quote Request"}
               </Button>
               <Button
                 type="button"
