@@ -117,7 +117,7 @@ const StartProject = () => {
         "service_bdnwc5q",
         "template_1e8u7rd",
         templateParams,
-        "YOUR_PUBLIC_KEY"
+        "L5mm9nhYsTb21CJv1"
       );
 
       toast.success("Quote request sent successfully!");
