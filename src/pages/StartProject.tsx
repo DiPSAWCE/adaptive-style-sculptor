@@ -355,6 +355,14 @@ const StartProject = () => {
               >
                 {isSending ? "Sending..." : "Send Quote Request"}
               </Button>
+              <Button
+                type="button"
+                variant="cta-secondary"
+                className="w-full"
+                onClick={() => window.open('mailto:hello@banele.dev?subject=Project Inquiry', '_blank')}
+              >
+                Contact Team
+              </Button>
             </div>
           </div>
         </div>
