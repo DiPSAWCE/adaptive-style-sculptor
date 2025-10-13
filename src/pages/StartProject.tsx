@@ -106,10 +106,12 @@ const StartProject = () => {
     const items = getSelectedItems().join(", ");
 
     const templateParams = {
-      user_name: userName,
-      user_email: userEmail,
-      services: items,
+      date: new Date().toLocaleDateString(),
+      UserName: userName,
+      userEmail: userEmail,
+      SelecedServices: items,
       total,
+      user_mail: userEmail,
     };
 
     try {
