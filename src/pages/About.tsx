@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import SocialLinks from "@/components/SocialLinks";
 import { Github, Linkedin, Twitter } from "lucide-react";
+import heroImage from "@/assets/hero-about.jpg";
 
 const About = () => {
   const socialLinks = [
@@ -27,9 +28,20 @@ const About = () => {
       
       <main className="container-responsive py-12 md:py-16">
         <div className="glass rounded-lg p-6 md:p-8 lg:p-12 max-w-4xl mx-auto">
-          <h2 className="font-jaini text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 italic">
-            A little about me
-          </h2>
+          <div className="flex flex-col lg:flex-row gap-8 items-center mb-8">
+            <div className="lg:w-1/3">
+              <img 
+                src={heroImage} 
+                alt="Banele Mjayezi" 
+                className="w-full h-auto rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-fade-in hover-lift"
+              />
+            </div>
+            <div className="lg:w-2/3">
+              <h2 className="font-jaini text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 italic animate-twinkle">
+                A little about me
+              </h2>
+            </div>
+          </div>
           
           <p className="font-montserrat text-responsive-xl text-white/90 leading-loose mb-6">
             HI, I'm Banele Mjayezi a developer passionate about creating clean, modern web experiences with a conscience.
