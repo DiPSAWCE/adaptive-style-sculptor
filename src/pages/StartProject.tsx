@@ -28,39 +28,55 @@ const StartProject = () => {
   const [errors, setErrors] = useState<{ userName?: string; userEmail?: string }>({});
   const [isSending, setIsSending] = useState(false);
 
+  const designServices = {
+    noDesign: { id: "no-design", name: "No design", price: 0 },
+    logo: [
+      { id: "logo-basic", name: "Basic (R1.5K - R2K)", price: 1750 },
+      { id: "logo-complex", name: "Complex (R3K - R5K)", price: 4000 },
+    ],
+    lowFidelity: [
+      { id: "lowfi-low", name: "Low Complexity (R2K - R5K)", price: 3500 },
+      { id: "lowfi-complex", name: "Complex (R10K)", price: 10000 },
+    ],
+    highFidelity: [
+      { id: "highfi-low", name: "Low Complexity (R5K)", price: 5000 },
+      { id: "highfi-complex", name: "Complex (R20K)", price: 20000 },
+    ],
+    prototype: [
+      { id: "prototype-low", name: "Low Complexity (R5K - R9K)", price: 7000 },
+      { id: "prototype-complex", name: "Complex (R15K)", price: 15000 },
+    ],
+  };
+
+  const backendServices = {
+    noBackend: { id: "no-backend", name: "No back-end needed", price: 0 },
+    cms: [
+      { id: "cms-low", name: "Low Complexity (R10K - R20K)", price: 15000 },
+      { id: "cms-complex", name: "High Complexity with Security, Scale, Custom API & Payments (R25K - R60K)", price: 42500 },
+    ],
+    ecommerce: [
+      { id: "ecommerce-simple", name: "Simple Shop 10-20 Products (R20K - R40K)", price: 30000 },
+      { id: "ecommerce-complex", name: "High Complexity (R60K - R100K)", price: 80000 },
+    ],
+  };
+
   const services: ServiceItem[] = [
-    // Design - Logo
     { id: "no-design", name: "No design", price: 0, category: "design" },
     { id: "logo-basic", name: "Logo - Basic (R1.5K - R2K)", price: 1750, category: "design" },
     { id: "logo-complex", name: "Logo - Complex (R3K - R5K)", price: 4000, category: "design" },
-    
-    // Design - Low Fidelity Wireframes
     { id: "lowfi-low", name: "Low Fidelity Wireframes - Low Complexity (R2K - R5K)", price: 3500, category: "design" },
     { id: "lowfi-complex", name: "Low Fidelity Wireframes - Complex (R10K)", price: 10000, category: "design" },
-    
-    // Design - High Fidelity Wireframes
     { id: "highfi-low", name: "High Fidelity Wireframes - Low Complexity (R5K)", price: 5000, category: "design" },
     { id: "highfi-complex", name: "High Fidelity Wireframes - Complex (R20K)", price: 20000, category: "design" },
-    
-    // Design - Clickable Prototype
     { id: "prototype-low", name: "Clickable Prototype - Low Complexity (R5K - R9K)", price: 7000, category: "design" },
     { id: "prototype-complex", name: "Clickable Prototype - Complex (R15K)", price: 15000, category: "design" },
-    
-    // Backend - CMS
     { id: "cms-low", name: "Basic CMS System - Low Complexity (R10K - R20K)", price: 15000, category: "backend" },
     { id: "cms-complex", name: "Basic CMS System - High Complexity with Security, Scale, Custom API & Payments (R25K - R60K)", price: 42500, category: "backend" },
-    
-    // Backend - E-commerce
     { id: "ecommerce-simple", name: "E-commerce Website (Design + Frontend + Backend) - Simple Shop 10-20 Products (R20K - R40K)", price: 30000, category: "backend" },
     { id: "ecommerce-complex", name: "E-commerce Website (Design + Frontend + Backend) - High Complexity (R60K - R100K)", price: 80000, category: "backend" },
-    
     { id: "no-backend", name: "No back-end needed", price: 0, category: "backend" },
-    
-    // Frontend
     { id: "2d-animations", name: "Include 2D animations", price: 2000, category: "frontend" },
     { id: "3d-animations", name: "Include 3D animations", price: 3000, category: "frontend" },
-    
-    // Discount
     { id: "mates-rates", name: "Mates Rates (10% discount)", price: -1, category: "discount" },
   ];
 
@@ -181,17 +197,34 @@ const StartProject = () => {
 
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Design Section */}
-              <fieldset className="space-y-4 border-b border-primary pb-6">
+              <fieldset className="space-y-6 border-b border-primary pb-6">
                 <legend className="font-jaini text-2xl text-white font-semibold mb-2">
                   1. Design
                 </legend>
                 <p className="text-white/80 mb-4">
                   Whether you're fully prepared or just starting out, we've got your design needs covered.
                 </p>
-                {services
-                  .filter((s) => s.category === "design")
-                  .map((service) => (
-                    <div key={service.id} className="flex items-center space-x-3">
+                
+                {/* No Design Option */}
+                <div className="flex items-center space-x-3">
+                  <Checkbox
+                    id={designServices.noDesign.id}
+                    checked={selectedServices.has(designServices.noDesign.id)}
+                    onCheckedChange={() => handleServiceToggle(designServices.noDesign.id)}
+                  />
+                  <label
+                    htmlFor={designServices.noDesign.id}
+                    className="text-white cursor-pointer text-sm md:text-base"
+                  >
+                    {designServices.noDesign.name}
+                  </label>
+                </div>
+
+                {/* Logo */}
+                <div className="space-y-2">
+                  <h4 className="text-white/90 font-semibold text-lg">Logo</h4>
+                  {designServices.logo.map((service) => (
+                    <div key={service.id} className="flex items-center space-x-3 ml-4">
                       <Checkbox
                         id={service.id}
                         checked={selectedServices.has(service.id)}
@@ -201,24 +234,102 @@ const StartProject = () => {
                         htmlFor={service.id}
                         className="text-white cursor-pointer text-sm md:text-base"
                       >
-                        {service.name} {service.price > 0 && `(R${service.price})`}
+                        {service.name}
                       </label>
                     </div>
                   ))}
+                </div>
+
+                {/* Low Fidelity Wireframes */}
+                <div className="space-y-2">
+                  <h4 className="text-white/90 font-semibold text-lg">Low Fidelity Wireframes</h4>
+                  {designServices.lowFidelity.map((service) => (
+                    <div key={service.id} className="flex items-center space-x-3 ml-4">
+                      <Checkbox
+                        id={service.id}
+                        checked={selectedServices.has(service.id)}
+                        onCheckedChange={() => handleServiceToggle(service.id)}
+                      />
+                      <label
+                        htmlFor={service.id}
+                        className="text-white cursor-pointer text-sm md:text-base"
+                      >
+                        {service.name}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+
+                {/* High Fidelity Wireframes */}
+                <div className="space-y-2">
+                  <h4 className="text-white/90 font-semibold text-lg">High Fidelity Wireframes</h4>
+                  {designServices.highFidelity.map((service) => (
+                    <div key={service.id} className="flex items-center space-x-3 ml-4">
+                      <Checkbox
+                        id={service.id}
+                        checked={selectedServices.has(service.id)}
+                        onCheckedChange={() => handleServiceToggle(service.id)}
+                      />
+                      <label
+                        htmlFor={service.id}
+                        className="text-white cursor-pointer text-sm md:text-base"
+                      >
+                        {service.name}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Clickable Prototype */}
+                <div className="space-y-2">
+                  <h4 className="text-white/90 font-semibold text-lg">Clickable Prototype</h4>
+                  {designServices.prototype.map((service) => (
+                    <div key={service.id} className="flex items-center space-x-3 ml-4">
+                      <Checkbox
+                        id={service.id}
+                        checked={selectedServices.has(service.id)}
+                        onCheckedChange={() => handleServiceToggle(service.id)}
+                      />
+                      <label
+                        htmlFor={service.id}
+                        className="text-white cursor-pointer text-sm md:text-base"
+                      >
+                        {service.name}
+                      </label>
+                    </div>
+                  ))}
+                </div>
               </fieldset>
 
               {/* Backend Section */}
-              <fieldset className="space-y-4 border-b border-primary pb-6">
+              <fieldset className="space-y-6 border-b border-primary pb-6">
                 <legend className="font-jaini text-2xl text-white font-semibold mb-2">
                   2. Back-end
                 </legend>
                 <p className="text-white/80 mb-4">
                   Powerful, reliable, and built for performance. Secure database integrations and smooth features.
                 </p>
-                {services
-                  .filter((s) => s.category === "backend")
-                  .map((service) => (
-                    <div key={service.id} className="flex items-center space-x-3">
+                
+                {/* No Backend Option */}
+                <div className="flex items-center space-x-3">
+                  <Checkbox
+                    id={backendServices.noBackend.id}
+                    checked={selectedServices.has(backendServices.noBackend.id)}
+                    onCheckedChange={() => handleServiceToggle(backendServices.noBackend.id)}
+                  />
+                  <label
+                    htmlFor={backendServices.noBackend.id}
+                    className="text-white cursor-pointer text-sm md:text-base"
+                  >
+                    {backendServices.noBackend.name}
+                  </label>
+                </div>
+
+                {/* Basic CMS System */}
+                <div className="space-y-2">
+                  <h4 className="text-white/90 font-semibold text-lg">Basic CMS System</h4>
+                  {backendServices.cms.map((service) => (
+                    <div key={service.id} className="flex items-center space-x-3 ml-4">
                       <Checkbox
                         id={service.id}
                         checked={selectedServices.has(service.id)}
@@ -228,10 +339,31 @@ const StartProject = () => {
                         htmlFor={service.id}
                         className="text-white cursor-pointer text-sm md:text-base"
                       >
-                        {service.name} {service.price > 0 && `(R${service.price})`}
+                        {service.name}
                       </label>
                     </div>
                   ))}
+                </div>
+
+                {/* E-commerce Website */}
+                <div className="space-y-2">
+                  <h4 className="text-white/90 font-semibold text-lg">E-commerce Website (Design + Frontend + Backend)</h4>
+                  {backendServices.ecommerce.map((service) => (
+                    <div key={service.id} className="flex items-center space-x-3 ml-4">
+                      <Checkbox
+                        id={service.id}
+                        checked={selectedServices.has(service.id)}
+                        onCheckedChange={() => handleServiceToggle(service.id)}
+                      />
+                      <label
+                        htmlFor={service.id}
+                        className="text-white cursor-pointer text-sm md:text-base"
+                      >
+                        {service.name}
+                      </label>
+                    </div>
+                  ))}
+                </div>
               </fieldset>
 
               {/* Frontend Section */}
