@@ -112,10 +112,8 @@ const StartProject = () => {
     return total;
   };
 
-  const getSelectedItems = () => {
-    return services
-      .filter((service) => selectedServices.has(service.id))
-      .map((service) => service.name);
+  const getSelectedServicesWithPrices = () => {
+    return services.filter((service) => selectedServices.has(service.id));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -144,7 +142,9 @@ const StartProject = () => {
     }
 
     const total = calculateTotal().toFixed(2);
-    const items = getSelectedItems().join(", ");
+    const items = getSelectedServicesWithPrices()
+      .map(s => s.price === -1 ? s.name : `${s.name.split('(')[0].trim()} - R${s.price}`)
+      .join(", ");
 
     const templateParams = {
       date: new Date().toLocaleDateString(),
@@ -482,13 +482,16 @@ const StartProject = () => {
             {/* Selected Items */}
             <div className="border-t border-b border-muted py-6 mb-6">
               <h3 className="font-jaini text-xl font-semibold mb-4">Selected Services:</h3>
-              <ul className="space-y-2 font-montserrat" id="slip-items">
+              <ul className="space-y-3 font-montserrat list-disc list-inside" id="slip-items">
                 {selectedServices.size === 0 ? (
-                  <li className="text-muted-foreground italic">No services selected yet</li>
+                  <li className="text-muted-foreground italic list-none">No services selected yet</li>
                 ) : (
-                  getSelectedItems().map((item, index) => (
+                  getSelectedServicesWithPrices().map((service, index) => (
                     <li key={index} className="text-foreground">
-                      {item}
+                      {service.price === -1 
+                        ? service.name 
+                        : `${service.name.split('(')[0].trim()} - R${service.price}`
+                      }
                     </li>
                   ))
                 )}
