@@ -29,13 +29,38 @@ const StartProject = () => {
   const [isSending, setIsSending] = useState(false);
 
   const services: ServiceItem[] = [
+    // Design - Logo
     { id: "no-design", name: "No design", price: 0, category: "design" },
-    { id: "logo", name: "Logo", price: 1000, category: "design" },
-    { id: "full-design", name: "Full design (wireframes + prototype)", price: 6000, category: "design" },
-    { id: "backend", name: "Yes, I need back-end development", price: 6000, category: "backend" },
+    { id: "logo-basic", name: "Logo - Basic (R1.5K - R2K)", price: 1750, category: "design" },
+    { id: "logo-complex", name: "Logo - Complex (R3K - R5K)", price: 4000, category: "design" },
+    
+    // Design - Low Fidelity Wireframes
+    { id: "lowfi-low", name: "Low Fidelity Wireframes - Low Complexity (R2K - R5K)", price: 3500, category: "design" },
+    { id: "lowfi-complex", name: "Low Fidelity Wireframes - Complex (R10K)", price: 10000, category: "design" },
+    
+    // Design - High Fidelity Wireframes
+    { id: "highfi-low", name: "High Fidelity Wireframes - Low Complexity (R5K)", price: 5000, category: "design" },
+    { id: "highfi-complex", name: "High Fidelity Wireframes - Complex (R20K)", price: 20000, category: "design" },
+    
+    // Design - Clickable Prototype
+    { id: "prototype-low", name: "Clickable Prototype - Low Complexity (R5K - R9K)", price: 7000, category: "design" },
+    { id: "prototype-complex", name: "Clickable Prototype - Complex (R15K)", price: 15000, category: "design" },
+    
+    // Backend - CMS
+    { id: "cms-low", name: "Basic CMS System - Low Complexity (R10K - R20K)", price: 15000, category: "backend" },
+    { id: "cms-complex", name: "Basic CMS System - High Complexity with Security, Scale, Custom API & Payments (R25K - R60K)", price: 42500, category: "backend" },
+    
+    // Backend - E-commerce
+    { id: "ecommerce-simple", name: "E-commerce Website (Design + Frontend + Backend) - Simple Shop 10-20 Products (R20K - R40K)", price: 30000, category: "backend" },
+    { id: "ecommerce-complex", name: "E-commerce Website (Design + Frontend + Backend) - High Complexity (R60K - R100K)", price: 80000, category: "backend" },
+    
     { id: "no-backend", name: "No back-end needed", price: 0, category: "backend" },
+    
+    // Frontend
     { id: "2d-animations", name: "Include 2D animations", price: 2000, category: "frontend" },
     { id: "3d-animations", name: "Include 3D animations", price: 3000, category: "frontend" },
+    
+    // Discount
     { id: "mates-rates", name: "Mates Rates (10% discount)", price: -1, category: "discount" },
   ];
 
