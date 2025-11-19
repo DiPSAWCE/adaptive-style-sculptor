@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web development services - HTML, CSS, JavaScript, Java, Adobe Creative Suite, and Canva">
+  <title>Services - Banele.dev</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Banele.dev</a>
+      
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="start-project.html" class="nav-link">Start-A-Project</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container section">
+    <!-- Services Intro -->
+    <div class="glass-card max-w-6xl mx-auto mb-large">
+      <h1 class="page-title">Services</h1>
+      
+      <p class="section-text">
+        As a skilled developer with a focus on HTML, CSS, JavaScript and Java, I offer complete, end-to-end solutions for building websites. From crafting clean, user-friendly designs to coding both the structure and functionality, I create custom sites that align perfectly with your vision. Whether it's structuring pages with HTML, styling them with CSS, or building interactive features using JavaScript, I handle every aspect of the process to deliver a functional and visually appealing web experience tailored to your needs. If you're a small business, creative team, or independent designer looking for a reliable technical partner, I can turn your ideas into fully functional, modern websites that work seamlessly.
+      </p>
+
+      <div class="offerings-section">
+        <p class="offerings-title">I offer you:</p>
+        <ul class="offerings-list">
+          <li>Clean, responsive websites built with HTML, CSS, and JavaScript.</li>
+          <li>From design to code—fast, functional, and modern.</li>
+          <li>Custom web solutions tailored to your vision.</li>
+        </ul>
+      </div>
+
+      <div class="cta-center">
+        <a href="start-project.html" class="btn btn-cta">Start-A-Project</a>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input 
+        type="text" 
+        id="serviceSearch" 
+        class="search-input" 
+        placeholder="Search services..."
+        aria-label="Search services"
+      >
+      <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+
+    <!-- Tech Stack Title -->
+    <h2 class="section-title text-center mb-medium">Tech Stack</h2>
+
+    <!-- Services Grid with Accordion -->
+    <div class="services-grid" id="servicesGrid">
+      <!-- HTML -->
+      <div class="service-card" data-service-title="HTML" data-service-description="Semantic, accessible HTML5 markup for solid web foundations.">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <svg class="icon-large icon-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h3 class="service-title accordion-trigger">HTML</h3>
+          <div class="service-description accordion-content">
+            <p>Semantic, accessible HTML5 markup for solid web foundations.</p>
+          </div>
+          <a href="start-project.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <!-- CSS -->
+      <div class="service-card" data-service-title="CSS" data-service-description="Modern, responsive styling with CSS3 and animations.">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <svg class="icon-large icon-peachy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+          </div>
+          <h3 class="service-title accordion-trigger">CSS</h3>
+          <div class="service-description accordion-content">
+            <p>Modern, responsive styling with CSS3 and animations.</p>
+          </div>
+          <a href="start-project.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="service-card" data-service-title="JavaScript" data-service-description="Interactive features and dynamic functionality.">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <svg class="icon-large icon-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="service-title accordion-trigger">JavaScript</h3>
+          <div class="service-description accordion-content">
+            <p>Interactive features and dynamic functionality.</p>
+          </div>
+          <a href="start-project.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Java -->
+      <div class="service-card" data-service-title="Java" data-service-description="Robust backend solutions and enterprise applications.">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <svg class="icon-large icon-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+          </div>
+          <h3 class="service-title accordion-trigger">Java</h3>
+          <div class="service-description accordion-content">
+            <p>Robust backend solutions and enterprise applications.</p>
+          </div>
+          <a href="start-project.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Adobe Creative Suite -->
+      <div class="service-card" data-service-title="Adobe Creative Suite" data-service-description="Professional design and visual content creation.">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <svg class="icon-large icon-peachy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+          </div>
+          <h3 class="service-title accordion-trigger">Adobe Creative Suite</h3>
+          <div class="service-description accordion-content">
+            <p>Professional design and visual content creation.</p>
+          </div>
+          <a href="start-project.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Canva -->
+      <div class="service-card" data-service-title="Canva" data-service-description="Quick, effective design solutions for modern branding.">
+        <div class="service-card-inner">
+          <div class="service-icon">
+            <svg class="icon-large icon-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="service-title accordion-trigger">Canva</h3>
+          <div class="service-description accordion-content">
+            <p>Quick, effective design solutions for modern branding.</p>
+          </div>
+          <a href="start-project.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div id="noResults" class="no-results" style="display: none;">
+      <p>No services found matching your search.</p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
