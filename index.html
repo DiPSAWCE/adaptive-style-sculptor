@@ -1,29 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Banele.dev - Creative Full-Stack Developer</title>
-    <meta name="description" content="Building clean, modern web experiences with a conscience. Efficient, sustainable websites." />
-    <meta name="author" content="Banele Mjayezi" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Banele Mjayezi - Creative Full-Stack Developer building clean, modern web experiences">
+  <title>Banele.dev - Creative Full-Stack Developer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Banele.dev</a>
+      
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
 
-    <meta property="og:title" content="Banele.dev - Creative Full-Stack Developer" />
-    <meta property="og:description" content="Building clean, modern web experiences with a conscience." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="start-project.html" class="nav-link">Start-A-Project</a>
+      </div>
+    </div>
+  </nav>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jaini&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
-  </head>
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Creative Full-Stack Dev</h1>
+          <p class="hero-description">
+            Building clean, modern web experiences with a conscience. Efficient, sustainable websites that are lightweight, fast, and environmentally mindful.
+          </p>
+          <a href="start-project.html" class="btn btn-cta">Work with me!</a>
+        </div>
+      </div>
+    </section>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Did You Know Section -->
+    <section class="container section">
+      <div class="glass-card text-center max-w-4xl mx-auto">
+        <h2 class="section-title">Did You Know?</h2>
+        <p class="section-text">
+          Over 75% of consumers judge a company's credibility based on its website design, and businesses with a strong online presence are more likely to increase sales by reaching their target audience effectively. A well-developed website doesn't just showcase products or services—it acts as a 24/7 salesperson, building trust, attracting the right audience, and guiding visitors into loyal customers.
+        </p>
+      </div>
+    </section>
+
+    <!-- Scrolling Strip -->
+    <div class="scroll-strip">
+      <div class="scroll-strip-content">
+        <p class="scroll-strip-text">
+          ⭐ Website Development ⭐ App Prototypes ⭐ E-Commerce Sites ⭐ Front-End & UI/UX ⭐
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
 </html>
